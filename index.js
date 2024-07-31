@@ -1,155 +1,137 @@
 "use strict";
-//Se crea una instancia del tipo Producto
-let producto = {
-    id: 1,
-    nombre: "Arroz",
-    precio: 20000
-};
-//console.log(producto);
-//2. Operadores (aritméticos, booleanos)
-function numeroPar(number) {
-    // Un número es par si el resto de su división por 2 es 0
-    return number % 2 === 0;
-}
-//   console.log(numeroPar(4)); // true
-//   console.log(numeroPar(7)); // false
-//   console.log(numeroPar(0)); // true
-//   console.log(numeroPar(-2)); // true
-//3. Estructuras de decisión (if, switch, ternarios)
-function clasificarNumero(number) {
-    if (number > 0) {
-        console.log("Número positivo");
-    }
-    else if (number < 0) {
-        console.log("Número negativo");
-    }
-    else {
-        console.log("Número cero");
-    }
-    switch (number) {
-        case 0:
-            console.log("Cero");
-        case 1:
-            console.log("Número positivo");
-        case -1:
-            console.log("Número negativo");
+/* Cómo ayuda el tipado estático a prevenir errores en el manejo de variables y constantes?
+Cuando se refactoriza código, el tipado estático permite al compilador identificar todas las partes del código afectadas por los cambios.
+Esto ayuda a evitar errores sutiles y asegura que los cambios no introduzcan inconsistencias.
+*/
+//Implementa una función que determine si un número es par utilizando operadores aritméticos y booleanos.
+function numeroParImpar(numero) {
+    const reciduo = numero % 2;
+    const validacion = reciduo === 0;
+    switch (validacion) {
+        case true:
+            console.log("numero es par");
             break;
-        default:
-            console.log("Número no reconocido");
+        case false:
+            console.log("el numero es impar");
+            break;
     }
 }
-;
-//console.log(clasificarNumero(-1));
-//4. Estructuras de iteración (while, for, foreach, map)
-let names = ['luis', 'carlos', 'felipe', 'alejandro', 'oscar'];
-function getNames(names) {
-    for (let i = 0; i < names.length; i++) {
-        console.log(names[i]);
-    }
-    ;
-}
-;
-//getNames(names)
-//Estructuras de Datos y Funciones
-//1. Arrays | Listas
-//Tarea 1: Crea un array de números y calcula la suma de todos sus elementos utilizando un metodo reduce.
-let numeros = [1, 2, 3, 4, 5];
-let total = numeros.reduce((acumulador, elemento) => {
-    return acumulador + elemento;
-});
-//console.log(total);
-//Tarea 2: Implementa una función que reciba un array de strings y retorne la concatenación de todos los elementos.
-let nombres = ['luis', 'carlos', 'felipe', 'alejandro', 'oscar'];
-function concatArray(array) {
-    return array.join('');
-}
-const users = [
-    {
-        id: 1,
-        name: 'Luis'
-    },
-    {
-        id: 1,
-        name: 'carlos'
-    },
-    {
-        id: 1,
-        name: 'alejandro'
-    },
-    {
-        id: 1,
-        name: 'andres'
-    },
-    {
-        id: 1,
-        name: 'julian'
-    }
-];
-users.forEach(user => {
-    //console.log(user.name);
-});
-//Tarea 4: Implementa una función que reciba un array de números y retorne el mayor valor.
-let arrayNumber = [5, 3, 6, 4, 5, 1, 12, 6];
-function returnNumber(numbers) {
-    return Math.max(...numbers);
-}
-;
-//console.log(returnNumber(arrayNumber));
-function findMaxValue(numbers) {
-    if (numbers.length === 0) {
-        console.error("Array esta vacio");
-    }
-    let maxValue = numbers[0];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > maxValue) {
-            maxValue = numbers[i];
+numeroParImpar(8);
+/*¿Qué ventajas ofrece el uso de operadores en un lenguaje tipado como TypeScript?
+Detección Temprana de Errores en tiempo de compilacion no de ejecucion
+Mejor Autocompletado y Navegación en el Editor
+Tipado Fuerte y Explicativo */
+//Implementa una función que clasifique un número en positivo, negativo o cero usando if y switch
+function PositiveOrNegative(numero) {
+    const clasification = numero > 0 || numero < 0;
+    const positiveNegative = numero > 0;
+    if (numero !== undefined) {
+        if (clasification) {
+            switch (positiveNegative) {
+                case true:
+                    console.log("el numero es positivo");
+                    break;
+                default:
+                    console.log("el numero es negativo");
+                    break;
+            }
+        }
+        else {
+            console.log("el numero es 0");
         }
     }
-    return maxValue;
 }
-;
-let car = {
-    marca: 'Toyota',
-    modelo: 'Landcruiser',
-    year: 2018
-};
-//console.log(car);
-//Tarea 2: Con base en el objeto Car, crea una clase que posea un metodo estatico que reciba un objeto Car y retorne un string con la información del carro.
-class CarInfo {
-    static getInfo(car) {
-        return `Marca: ${car.marca}, Modelo: ${car.modelo}, year: ${car.year}`;
-    }
-    ;
-}
-;
-//console.log(CarInfo.getInfo(car));
-//Tarea 3: Implementa una función que reciba un objeto Car y retorne un nuevo objeto con las mismas propiedades, pero con el año incrementado en 1.
-function info(car) {
-    car.year++;
-    return car;
-}
-;
-//console.log(info(car));
-function info2(car) {
-    return Object.assign(Object.assign({}, car), { year: car.year++ });
-}
-//console.log(info2(car));
-//3. Funciones
-// Tarea1: Implementa una función que reciba un array de números y retorne el mayor valor.
-let arrayNumber2 = [5, 3, 6, 4, 5, 1, 12, 6];
-function firstFunction(array) {
-    let maxValue = array[0];
-    array.forEach(number => {
-        number > maxValue ? number = maxValue : number;
+PositiveOrNegative(0);
+//¿Cuándo es preferible usar un operador ternario en lugar de una estructura if?
+/*R/=
+Asignaciones en Línea
+Condiciones Simples y Expresiones Cortas:
+Retorno Condicional en Funciones Cortas: function obtenerSaludo(hora: number): string {
+    return hora < 12 ? "Buenos días" : "Buenas tardes";
+}*/
+//Implementa una función que recorra un array de nombres y los imprima en consola.
+function arrayNames() {
+    const names = ['felipe', 'juan', 'daniela', 'geraldine', 'manuela', 'camila'];
+    names.forEach(name => {
+        console.log(name);
     });
-    return maxValue;
 }
-;
-//console.log(findMaxValue(arrayNumber2));
-//Tarea 2: Implementa una funcion que reciba tres parametros y retorne error si almenos uno de los parametros pasados no es del tipo de los dos primeros parametros. 
-//Asegurarse que los dos primeros parametros sean del mismo tipo.
-function validate(para1, para2, para3) {
-    return typeof para1 && typeof para2 !== typeof para3 ? `Para3: ${typeof para3}, no es del mismo tipo de para1 y para2` : `Para3: ${typeof para3}, es del mismo tipo de para1 y para2`;
+arrayNames();
+/*
+Inmutabilidad
+Método map: Crea un nuevo arreglo con los resultados de aplicar la función, dejando el arreglo original inalterado. Esto fomenta la inmutabilidad, un principio importante en la programación funcional.
+
+Ejemplo con map:
+
+typescript
+Copy code
+let numeros: number[] = [1, 2, 3];
+let cuadrados = numeros.map(x => x * x);
+// numeros: [1, 2, 3]
+// cuadrados: [1, 4, 9]
+
+Composición de Funciones
+*/
+//Crea un array de números y calcula la suma de todos sus elementos utilizando un metodo reduce
+let numeros = [1, 2, 3, 4, 5];
+// Utilizamos `reduce` para sumar todos los elementos del arreglo
+let suma = numeros.reduce((acumulador, valorActual) => {
+    return acumulador + valorActual;
+}, 0); // 0 es el valor inicial del acumulador
+console.log(suma);
+//Implementa una función que reciba un array de strings y retorne la concatenación de todos los elementos
+function arraysConca(array) {
+    let conca = "";
+    for (let i = 0; i < array.length; i++) {
+        conca += array[i];
+    }
+    console.log(conca);
 }
-;
-console.log(validate("hola", "luis", "1"));
+arraysConca(['h', 'o', 'l', 'a']);
+const users = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' },
+    { id: 3, name: 'Charlie' }
+];
+users.forEach(user => {
+    console.log(user.name);
+});
+function mostValue(numbers) {
+    if (numbers.length === 0) {
+        return undefined; // Retorna undefined si el arreglo está vacío
+    }
+    let mostValue = numbers[0]; // Inicializa mostValue con el primer elemento del arreglo
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > mostValue) {
+            mostValue = numbers[i]; // Actualiza mostValue si se encuentra un valor mayor
+        }
+    }
+    return mostValue;
+}
+let numbers = [3, 2, 1, 9, 5];
+console.log(mostValue(numbers));
+let cars = {
+    marca: 'jeep',
+    modelo: 'rocket',
+    año: 2023
+};
+console.log(`${cars.modelo}`);
+class CarInfo {
+    static obtenerInfo(car) {
+        return `Marca: ${car.marca}, Modelo: ${car.modelo}, Año: ${car.año}`;
+    }
+}
+const infoDelCarro = CarInfo.obtenerInfo(cars);
+console.log(infoDelCarro);
+function incrementarAño(car) {
+    return {
+        ...car, // Copia todas las propiedades del objeto original
+        año: car.año + 1 // Incrementa el año en 1
+    };
+}
+console.log(incrementarAño(cars));
+//¿Qué ventajas ofrece el uso de tipos personalizados en objetos?
+/*Definición Clara de Estructuras
+Validación de Tipos en Tiempo de Compilación:
+Reusabilidad y Composición
+*/ 
