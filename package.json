@@ -1,19 +1,16 @@
 {
-  "name": "introduccion-a-typescript",
+  "name": "introducci-n-a-typescript",
   "version": "1.0.0",
-  "description": "## Título: **Introducción a TypeScript**",
+  "description": "-   ¿Cómo influye una buena configuración inicial en el desarrollo de un proyecto?\r Influye en la manera como se asegura un buen punto de partida para el desarrollo ya que nos ayudará a poder identificar rápidamente los errores, hacer aplicaciones escalables con un mejor rendimiento.\r -   ¿Qué ventajas ofrece TypeScript en comparación con JavaScript puro?\r Gracias al tipado estático de TypeScript podemos definir tipos de datos para variables, parámetros de funciones y valores de retorno, situación en la que JavaScript es mas permisivo.\r -   ¿Por qué es importante verificar los tipos de datos en un proyecto de software?\r Para poder depurar los errores y comportamientos inesperados de la aplicación, entonces typescript nos ayuda verificando los tipos de datos y mejorando la claridad del código.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently && tsc --watch && nodemon"
+    "build": "tsc && node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.4",
     "typescript": "^5.5.4"
-  },
-  "type": "module"
+  }
 }
