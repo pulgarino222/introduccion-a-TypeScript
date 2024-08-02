@@ -170,12 +170,22 @@ let cars: car = {
 }
 
 console.log(`${cars.modelo}`)
+   
 
 class CarInfo {
-    static obtenerInfo(car: car): string {
-        return `Marca: ${car.marca}, Modelo: ${car.modelo}, Año: ${car.año}`;
+    interface car {
+        marca: string,
+        modelo: string,
+        año: number
+    }
+    cars
+        constructor(cars:car){
+        
+        
     }
 }
+
+
 
 const infoDelCarro = CarInfo.obtenerInfo(cars);
 console.log(infoDelCarro);
@@ -194,3 +204,30 @@ console.log(incrementarAño(cars))
 Validación de Tipos en Tiempo de Compilación:
 Reusabilidad y Composición
 */
+
+
+
+//Implementa una funcion que reciba rest parameters y retorne error si almenos uno de los parametros pasados no es del tipo de los dos primeros parametros. Asegurarse que los dos primeros parametros sean del mismo tipo.
+
+function whatTypes(...type:(number|string|boolean)[]):string{
+    let mensaje:string=""
+    if(type.length<2){
+        mensaje="se necesitan mas parametros"
+        return mensaje
+    }else{
+        for (let i = 0; i < type.length; i++) {
+            if((typeof type[i])===(typeof type[0]&&(typeof type[1]))){
+
+                mensaje=`todos los tipos son iguales `
+
+            }else{
+                mensaje=`al menos un tipo no es igual error ${type[i]} no es igual`
+            }
+        }
+        
+    }
+    return mensaje
+
+}
+
+console.log(whatTypes("l","n",4))
